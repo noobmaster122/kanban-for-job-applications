@@ -1,3 +1,17 @@
 .kanban-custom{
     margin-top: 80px;
 }
+.card-template{
+    background-color: white;
+    border-radius: 5px;
+}
+
+.e-card-header > *{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.e-card-content > *{
+    padding: 0 !important;
+    margin: 0 !important;
+}

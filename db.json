@@ -9,27 +9,19 @@
     "cards": [
         {
             "Id": "2",
-            "Title": "Task 2",
             "Status": "doneStatus",
-            "Summary": "Analyze the new requirements gathered from the customer.",
-            "Type": "Story",
-            "Priority": "Low",
-            "Tags": "Analyze,Customer",
-            "Estimate": 3.5,
-            "Assignee": "Nancy Davloio",
-            "RankId": "1"
+            "positionTitle": "développeur java",
+            "hiringManagerName": "john doe",
+            "hiringManagerLinkedIn": "#",
+            "haveContactedHiringManager": false
         },
         {
-            "Id": "5",
-            "Title": "Task 2",
+            "Id": "3",
             "Status": "doneStatus",
-            "Summary": "Analyze the new requirements gathered from the customer.",
-            "Type": "Story",
-            "Priority": "Low",
-            "Tags": "Analyze,Customer",
-            "Estimate": 3.5,
-            "Assignee": "Nancy Davloio",
-            "RankId": "1"
+            "positionTitle": "développeur symfony",
+            "hiringManagerName": "john doe",
+            "hiringManagerLinkedIn": "#",
+            "haveContactedHiringManager": true
         }
     ],
     "cardSettings": {
