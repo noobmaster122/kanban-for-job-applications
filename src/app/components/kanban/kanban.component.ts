@@ -2,6 +2,7 @@ import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, ViewChil
 import { CardSettingsModel } from '@syncfusion/ej2-angular-kanban';
 import { KanbanHandlerService } from 'src/app/services/kanban-handler.service';
 import { Subscription } from 'rxjs';
+import { Card } from 'src/app/models/card.model';
 
 
 @Component({
@@ -22,19 +23,18 @@ import { Subscription } from 'rxjs';
       </div> 
     </ng-template> 
   </ejs-kanban>
-  <pre>{{data | json}}</pre>
               `
 })
 export class KanbanComponent implements AfterViewChecked {
   public columns: object[] = [];
-  public data: object[] = [];
+  public data: Card[] = [];
   public cardSettings: CardSettingsModel = { headerField: '', contentField: '' };
   private subscription: Subscription = new Subscription();
 
   constructor(private kanbanService: KanbanHandlerService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.subscription.add(this.kanbanService.cardData.subscribe((data: object[]) => {
+    this.subscription.add(this.kanbanService.cardData.subscribe((data: Card[]) => {
       this.data = data;
       this.cdr.detectChanges();
     }));

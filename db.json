@@ -41,15 +41,6 @@
       "haveContactedHiringManager": false
     },
     {
-      "id": "4b00",
-      "Id": -1,
-      "status": "doneStatus",
-      "positionTitle": "web dev",
-      "hiringManagerName": "didin",
-      "hiringManagerLinkedIn": "#",
-      "haveContactedHiringManager": "true"
-    },
-    {
       "id": "49d2",
       "Id": 375,
       "status": "doneStatus",
@@ -63,6 +54,51 @@
       "Id": 834,
       "status": "doneStatus",
       "positionTitle": "php dev",
+      "hiringManagerName": "farouk",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": false
+    },
+    {
+      "id": "a9e1",
+      "Id": 194,
+      "status": "toApplyStatus",
+      "positionTitle": "maydir walo",
+      "hiringManagerName": "hamouda",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": false
+    },
+    {
+      "id": "3218",
+      "Id": 886,
+      "status": "vacationStatus",
+      "positionTitle": "java dev",
+      "hiringManagerName": "hamouda",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": "true"
+    },
+    {
+      "id": "f9a3",
+      "Id": 978,
+      "status": "vacationStatus",
+      "positionTitle": "ninja dev",
+      "hiringManagerName": "didin",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": "True"
+    },
+    {
+      "id": "5482",
+      "Id": 321,
+      "status": "bossFightStatus",
+      "positionTitle": "dingo dev",
+      "hiringManagerName": "didin",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": true
+    },
+    {
+      "id": "3a8b",
+      "Id": 294,
+      "status": "vacationStatus",
+      "positionTitle": "bingo dev",
       "hiringManagerName": "farouk",
       "hiringManagerLinkedIn": "#",
       "haveContactedHiringManager": false

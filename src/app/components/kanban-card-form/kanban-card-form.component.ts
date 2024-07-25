@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Card } from 'src/app/models/card.model';
 import { KanbanHandlerService } from 'src/app/services/kanban-handler.service';
 
 
@@ -8,22 +9,27 @@ import { KanbanHandlerService } from 'src/app/services/kanban-handler.service';
   //styleUrls: ['./kanban-card-form.component.css'],
   template: `
 <form (ngSubmit)="addCard()">
-  <label for="title">Title:</label>
-  <input id="positionTitle" [(ngModel)]="newCard.positionTitle" name="positionTitle" required>
-  <input id="status" [(ngModel)]="newCard.status" name="status" required>
-  <input id="hiringManagerName" [(ngModel)]="newCard.hiringManagerName" name="hiringManagerName" >
-  <input id="hiringManagerLinkedIn" [(ngModel)]="newCard.hiringManagerLinkedIn" name="hiringManagerLinkedIn" >
-  <input id="haveContactedHiringManager" [(ngModel)]="newCard.haveContactedHiringManager" name="haveContactedHiringManager" required>
-  <!-- Add fields for other card properties -->
+  <input id="positionTitle" [(ngModel)]="newCard.positionTitle" name="positionTitle"  placeholder="Job title" required>
+  <select id="status" [(ngModel)]="newCard.status" name="status" required>
+    <option value="toApplyStatus">To Apply</option>
+    <option value="appliedStatus">Applied</option>
+    <option value="doneStatus">Done</option>
+    <option value="bossFightStatus">Boss Fight</option>
+    <option value="vacationStatus">Vacation</option>
+  </select>  
+  <input id="hiringManagerName" [(ngModel)]="newCard.hiringManagerName" placeholder="Hiring manager" name="hiringManagerName" >
+  <input id="hiringManagerLinkedIn" [(ngModel)]="newCard.hiringManagerLinkedIn" placeholder="Offer link" name="hiringManagerLinkedIn" >
+  <label for="haveContactedHiringManager">Have Contacted Hiring Manager:</label>
+  <input id="haveContactedHiringManager" type="checkbox" [(ngModel)]="newCard.haveContactedHiringManager" name="haveContactedHiringManager">
 
   <button type="submit">Add Card</button>
 </form>
 `
 })
 export class KanbanCardFormComponent {
-  @Input() newCard = {
+  @Input() newCard : Card = {
     Id: -1,
-    status: "",
+    status: "toApplyStatus",
     positionTitle: "",
     hiringManagerName: "",
     hiringManagerLinkedIn: "#",
@@ -39,7 +45,7 @@ export class KanbanCardFormComponent {
     this.kanbanService.addCard(this.newCard);
     this.newCard = { // Reset the form
       Id: -1,
-      status: "",
+      status: "toApplyStatus",
       positionTitle: "",
       hiringManagerName: "",
       hiringManagerLinkedIn: "#",
