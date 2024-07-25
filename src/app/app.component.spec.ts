@@ -3,6 +3,8 @@ import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { KanbanComponent } from './components/kanban/kanban.component';
 import { KanbanModule } from '@syncfusion/ej2-angular-kanban';
+import { KanbanCardFormComponent } from './components/kanban-card-form/kanban-card-form.component';
+import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -12,9 +14,13 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        KanbanComponent // Declare KanbanComponent here
+        KanbanComponent,
+        KanbanCardFormComponent
       ],
-      imports: [ KanbanModule ] // Import the KanbanModule here
+      imports: [ 
+        KanbanModule,
+        FormsModule
+      ] 
     })
     .compileComponents();
   });
@@ -29,8 +35,13 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the Kanban component', () => {
+  it('should render the kanban component', () => {
     const kanbanDebugElement = fixture.debugElement.query(By.css('app-kanban'));
+    expect(kanbanDebugElement).toBeTruthy();
+  });
+
+  it('should render the kanban card form component', () => {
+    const kanbanDebugElement = fixture.debugElement.query(By.css('app-kanban-card-form'));
     expect(kanbanDebugElement).toBeTruthy();
   });
 
