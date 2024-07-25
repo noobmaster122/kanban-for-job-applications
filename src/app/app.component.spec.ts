@@ -1,27 +1,41 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { KanbanComponent } from './components/kanban/kanban.component';
+import { KanbanModule } from '@syncfusion/ej2-angular-kanban';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    declarations: [AppComponent]
-  }));
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [
+        AppComponent,
+        KanbanComponent // Declare KanbanComponent here
+      ],
+      imports: [ KanbanModule ] // Import the KanbanModule here
+    })
+    .compileComponents();
   });
 
-  it(`should have as title 'application-hunter-extension'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('application-hunter-extension');
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges(); // Detect initial changes
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('application-hunter-extension app is running!');
+  it('should create the app component', () => {
+    expect(component).toBeTruthy();
   });
+
+  it('should render the Kanban component', () => {
+    const kanbanDebugElement = fixture.debugElement.query(By.css('app-kanban'));
+    expect(kanbanDebugElement).toBeTruthy();
+  });
+
+  it('should have a title', () => {
+    expect(component.title).toEqual('application-hunter-extension');
+  });
+
 });
