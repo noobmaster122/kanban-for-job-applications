@@ -48,8 +48,10 @@ export class KanbanHandlerService {
 
   // Add a new card
   addCard(newCard: object) {
-    this.cards = [...this.cards, newCard];
-    this.updateKanbanCards();
+    this.http.post<object>(`${this.apiUrl}/cards`, newCard).subscribe(addedCard => {
+      this.cards = [...this.cards, addedCard];
+      this.updateKanbanCards();
+    });
   }
 
 }

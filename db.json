@@ -1,31 +1,75 @@
 {
-    "columns": [
-        { "headerText": "To Apply", "keyField": "toApplyStatus" },
-        { "headerText": "Applied", "keyField": "appliedStatus" },
-        { "headerText": "HR Interview", "keyField": "doneStatus" },
-        { "headerText": "Boss fight with tech lead", "keyField": "bossFightStatus" },
-        { "headerText": "Can finally go on a vacation", "keyField": "vacationStatus" }
-    ],
-    "cards": [
-        {
-            "Id": "2",
-            "Status": "doneStatus",
-            "positionTitle": "développeur java",
-            "hiringManagerName": "john doe",
-            "hiringManagerLinkedIn": "#",
-            "haveContactedHiringManager": false
-        },
-        {
-            "Id": "3",
-            "Status": "doneStatus",
-            "positionTitle": "développeur symfony",
-            "hiringManagerName": "john doe",
-            "hiringManagerLinkedIn": "#",
-            "haveContactedHiringManager": true
-        }
-    ],
-    "cardSettings": {
-        "headerField": "Id",
-        "contentField": "Summary"
+  "columns": [
+    {
+      "headerText": "To Apply",
+      "keyField": "toApplyStatus"
+    },
+    {
+      "headerText": "Applied",
+      "keyField": "appliedStatus"
+    },
+    {
+      "headerText": "HR Interview",
+      "keyField": "doneStatus"
+    },
+    {
+      "headerText": "Boss fight with tech lead",
+      "keyField": "bossFightStatus"
+    },
+    {
+      "headerText": "Can finally go on a vacation",
+      "keyField": "vacationStatus"
     }
+  ],
+  "cards": [
+    {
+      "id": "0917",
+      "Id": 217,
+      "status": "",
+      "positionTitle": "web dev",
+      "hiringManagerName": "hamouda",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": false
+    },
+    {
+      "id": "ec19",
+      "Id": 967,
+      "status": "toApplyStatus",
+      "positionTitle": "web dev",
+      "hiringManagerName": "hamouda",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": false
+    },
+    {
+      "id": "4b00",
+      "Id": -1,
+      "status": "doneStatus",
+      "positionTitle": "web dev",
+      "hiringManagerName": "didin",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": "true"
+    },
+    {
+      "id": "49d2",
+      "Id": 375,
+      "status": "doneStatus",
+      "positionTitle": "web dev",
+      "hiringManagerName": "belamo",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": false
+    },
+    {
+      "id": "653b",
+      "Id": 834,
+      "status": "doneStatus",
+      "positionTitle": "php dev",
+      "hiringManagerName": "farouk",
+      "hiringManagerLinkedIn": "#",
+      "haveContactedHiringManager": false
+    }
+  ],
+  "cardSettings": {
+    "headerField": "Id",
+    "contentField": "Summary"
   }
+}
