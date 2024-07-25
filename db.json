@@ -1,0 +1,39 @@
+{
+    "columns": [
+        { "headerText": "To Apply", "keyField": "toApplyStatus" },
+        { "headerText": "Applied", "keyField": "appliedStatus" },
+        { "headerText": "HR Interview", "keyField": "doneStatus" },
+        { "headerText": "Boss fight with tech lead", "keyField": "bossFightStatus" },
+        { "headerText": "Can finally go on a vacation", "keyField": "vacationStatus" }
+    ],
+    "cards": [
+        {
+            "Id": "2",
+            "Title": "Task 2",
+            "Status": "doneStatus",
+            "Summary": "Analyze the new requirements gathered from the customer.",
+            "Type": "Story",
+            "Priority": "Low",
+            "Tags": "Analyze,Customer",
+            "Estimate": 3.5,
+            "Assignee": "Nancy Davloio",
+            "RankId": "1"
+        },
+        {
+            "Id": "5",
+            "Title": "Task 2",
+            "Status": "doneStatus",
+            "Summary": "Analyze the new requirements gathered from the customer.",
+            "Type": "Story",
+            "Priority": "Low",
+            "Tags": "Analyze,Customer",
+            "Estimate": 3.5,
+            "Assignee": "Nancy Davloio",
+            "RankId": "1"
+        }
+    ],
+    "cardSettings": {
+        "headerField": "Id",
+        "contentField": "Summary"
+    }
+  }

@@ -9,27 +9,34 @@ import { Subscription } from 'rxjs';
   //templateUrl: './kanban.component.html',
   styleUrls: ['./kanban.component.css'],
   template: `
-  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="Status" [columns]='columns' [cardSettings]='cardSettings'>         
+  <ejs-kanban [dataSource]='data' keyField="Status" [columns]='columns' [cardSettings]='cardSettings'>         
   </ejs-kanban>
   <pre>{{data | json}}</pre>
               `
 })
 export class KanbanComponent implements AfterViewChecked  {
-  public columns: object[];
-  public data: object[];
-  public cardSettings: CardSettingsModel;
-  private subscription: Subscription | null = null;
+  public columns: object[] = [];
+  public data: object[] = [];
+  public cardSettings: CardSettingsModel = { headerField: '', contentField: '' };
+  private subscription: Subscription = new Subscription();
 
-  constructor(private kanbanService: KanbanHandlerService, private cdr: ChangeDetectorRef) {
-    this.columns = kanbanService.columns;
-    this.data = kanbanService.data;
-    this.cardSettings = kanbanService.cardSettings;
-  }
+  constructor(private kanbanService: KanbanHandlerService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.subscription = this.kanbanService.cardStore.subscribe((data: object[]) => {
+    this.subscription.add(this.kanbanService.cardData.subscribe((data: object[]) => {
       this.data = data;
-    });
+      this.cdr.detectChanges();
+    }));
+
+    this.subscription.add(this.kanbanService.columnsData.subscribe(columns => {
+      this.columns = columns;
+      this.cdr.detectChanges();
+    }));
+
+    this.subscription.add(this.kanbanService.cardSettingsData.subscribe(cardSettings => {
+      this.cardSettings = cardSettings;
+      this.cdr.detectChanges();
+    }));
   }
 
   ngAfterViewChecked(): void {

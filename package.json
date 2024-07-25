@@ -20,6 +20,7 @@
     "@angular/router": "^16.1.0",
     "@syncfusion/ej2-angular-dropdowns": "^26.1.42",
     "@syncfusion/ej2-angular-kanban": "^26.1.40",
+    "json-server": "^1.0.0-beta.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
