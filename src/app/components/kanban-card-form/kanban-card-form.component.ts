@@ -4,7 +4,7 @@ import { KanbanHandlerService } from 'src/app/services/kanban-handler.service';
 @Component({
   selector: 'app-kanban-card-form',
   // templateUrl: './kanban-card-form.component.html',
-  styleUrls: ['./kanban-card-form.component.css'],
+  //styleUrls: ['./kanban-card-form.component.css'],
   template: `
 <form (ngSubmit)="addCard()">
   <label for="title">Title:</label>
