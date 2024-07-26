@@ -40,7 +40,7 @@ export class KanbanCardFormComponent {
 
 
   addCard(){
-    this.newCard.Id = Math.floor(Math.random() * 1000); // Simple ID generation for demo
+    this.newCard.Id = Math.floor(Math.random() * 1000); 
     const newlyAddedCard = this.newCard;
     this.kanbanService.addCard(this.newCard);
     this.newCard = { // Reset the form

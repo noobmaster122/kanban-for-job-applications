@@ -5,6 +5,7 @@ import { KanbanComponent } from './components/kanban/kanban.component';
 import { KanbanModule } from '@syncfusion/ej2-angular-kanban';
 import { KanbanCardFormComponent } from './components/kanban-card-form/kanban-card-form.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -19,7 +20,8 @@ describe('AppComponent', () => {
       ],
       imports: [ 
         KanbanModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
       ] 
     })
     .compileComponents();

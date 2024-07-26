@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { KanbanCardFormComponent } from './kanban-card-form.component';
 import { KanbanHandlerService } from 'src/app/services/kanban-handler.service';
-import { of } from 'rxjs';
+import { Card } from 'src/app/models/card.model';
 
 describe('KanbanCardFormComponent', () => {
   let component: KanbanCardFormComponent;
@@ -42,56 +42,47 @@ describe('KanbanCardFormComponent', () => {
   });
 
   it('should call KanbanHandlerService.addCard with correct data', () => {
-    const newCard = {
-      Id: 1,
-      Title: 'Test Title',
-      Status: 'Test Status',
-      Summary: '',
-      Type: '',
-      Priority: '',
-      Tags: '',
-      Estimate: null,
-      Assignee: '',
-      RankId: null
+    const newCard: Card = {
+      Id: -1, // This will be replaced with a random number in the component
+      status: 'toApplyStatus', // Ensure this matches one of the allowed string literals
+      positionTitle: 'Test Position',
+      hiringManagerName: 'Test Manager',
+      hiringManagerLinkedIn: '#',
+      haveContactedHiringManager: false
     };
-    component.newCard = newCard;
 
+    component.newCard = { ...newCard };
 
-    const returnedCard = component.addCard();
+    // Mock `Math.random()` to return a fixed value for predictability
+    spyOn(Math, 'floor').and.returnValue(1);
 
-    expect(kanbanService.addCard).toHaveBeenCalledWith(returnedCard);
-    expect(returnedCard).toEqual(newCard);
+    component.addCard();
+
+    expect(kanbanService.addCard).toHaveBeenCalledWith({
+      ...newCard,
+      Id: 1 // The fixed value returned by `Math.floor`
+    });
   });
 
   it('should reset the form after submission', () => {
-    const initialCard = {
-      Id: 1,
-      Title: '',
-      Status: '',
-      Summary: '',
-      Type: '',
-      Priority: '',
-      Tags: '',
-      Estimate: null,
-      Assignee: '',
-      RankId: null
-    };
-
     component.newCard = {
       Id: 2,
-      Title: 'Test Title',
-      Status: 'Test Status',
-      Summary: '',
-      Type: '',
-      Priority: '',
-      Tags: '',
-      Estimate: null,
-      Assignee: '',
-      RankId: null
+      status: 'appliedStatus',
+      positionTitle: 'Test Position',
+      hiringManagerName: 'Test Manager',
+      hiringManagerLinkedIn: '#',
+      haveContactedHiringManager: true
     };
 
     component.addCard();
 
-    expect(component.newCard).toEqual(initialCard);
+    expect(component.newCard).toEqual({
+      Id: -1,
+      status: 'toApplyStatus',
+      positionTitle: '',
+      hiringManagerName: '',
+      hiringManagerLinkedIn: '#',
+      haveContactedHiringManager: false
+    });
   });
 });
