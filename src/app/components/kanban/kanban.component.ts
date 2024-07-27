@@ -1,13 +1,11 @@
-import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CardSettingsModel, ColumnsModel } from '@syncfusion/ej2-angular-kanban';
 import { KanbanHandlerService } from 'src/app/services/kanban-handler.service';
 import { Subscription } from 'rxjs';
-import { DialogComponent } from '@syncfusion/ej2-angular-popups';
-
+import { KanbanModalComponent } from '../kanban-modal/kanban-modal.component';
 
 @Component({
   selector: 'app-kanban',
-  //templateUrl: './kanban.component.html',
   styleUrls: ['./kanban.component.css'],
   template: `
   <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status" [columns]='columns' [cardSettings]='cardSettings'>         
@@ -23,21 +21,15 @@ import { DialogComponent } from '@syncfusion/ej2-angular-popups';
         </div> 
     </ng-template> 
   </ejs-kanban>
-  <ejs-dialog #dialog [visible]="dialogVisible" [header]="'Dialog'" [content]="dialogContent" [width]="'300px'" [target]="'#target'" [isModal]="true" (overlayClick)="onOverlayClick()">
-  </ejs-dialog>
-  <div id="target"></div>
-  <pre>{{data | json}}</pre>
-              `
+  <app-kanban-modal #modal></app-kanban-modal>
+  `
 })
 export class KanbanComponent implements AfterViewChecked, OnInit, OnDestroy {
-  @ViewChild('dialog') dialog!: DialogComponent;
+  @ViewChild('modal') modal!: KanbanModalComponent;
   public columns: ColumnsModel[];
   public data: object[];
   public cardSettings: CardSettingsModel;
-  public dialogVisible: boolean = false; // Add this property
-  public dialogContent: string = ''; // Add this property
   private subscription: Subscription | null = null;
-
 
   constructor(private kanbanService: KanbanHandlerService, private cdr: ChangeDetectorRef) {
     this.columns = kanbanService.columns;
@@ -51,39 +43,25 @@ export class KanbanComponent implements AfterViewChecked, OnInit, OnDestroy {
     });
   }
 
-
-
-
-  openDialog(keyField: string | null) {
-    this.dialogContent = `This is a dialog for the ${keyField} column.`;
-    this.dialogVisible = true;
-    console.log(this.dialog);
-    this.dialog.show();
-  }
-  onOverlayClick() {
-    this.dialogVisible = false;
-    this.dialog.hide();
+  openDialog(keyField: string) {
+    this.modal.openDialog(keyField);
   }
 
   ngAfterViewChecked(): void {
-    // Trigger change detection to ensure the view is fully updated
     this.cdr.detectChanges();
-
-    // Query the document for all elements with the class 'e-empty-card'
     const emptyCards = document.querySelectorAll('.e-empty-card');
-
-    // Iterate over the NodeList and hide each element
     emptyCards.forEach((element) => {
       (element as HTMLElement).style.display = 'none';
     });
 
-    // the eventlistneres get removed after the cards are moved in the kanban
+    //this causes an infinite loop
+    //only do this logic if no triggers are found
     const triggers = document.querySelectorAll('.open-dialog-trigger');
     triggers.forEach(trigger => {
       trigger.addEventListener('click', (event) => {
         const keyField = (event.currentTarget as HTMLElement).getAttribute('data-key');
-        console.log(keyField);
-        this.openDialog(keyField);
+
+        this.openDialog(keyField || 'toApplyStatus');
       });
     });
   }
@@ -94,5 +72,3 @@ export class KanbanComponent implements AfterViewChecked, OnInit, OnDestroy {
     }
   }
 }
-
-

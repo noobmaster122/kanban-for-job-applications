@@ -1,32 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Card } from 'src/app/models/card.model';
 import { KanbanHandlerService } from 'src/app/services/kanban-handler.service';
 
 @Component({
   selector: 'app-kanban-card-form',
-  // templateUrl: './kanban-card-form.component.html',
-  //styleUrls: ['./kanban-card-form.component.css'],
+  styleUrls: ['./kanban-card-form.component.css'],
   template: `
-<form (ngSubmit)="addCard()">
-  <input id="positionTitle" [(ngModel)]="newCard.positionTitle" name="positionTitle"  placeholder="Job title" required>
-  <select id="status" [(ngModel)]="newCard.status" name="status" required>
-    <option value="toApplyStatus">To Apply</option>
-    <option value="appliedStatus">Applied</option>
-    <option value="doneStatus">Done</option>
-    <option value="bossFightStatus">Boss Fight</option>
-    <option value="vacationStatus">Vacation</option>
-  </select>  
-  <input id="hiringManagerName" [(ngModel)]="newCard.hiringManagerName" placeholder="Hiring manager" name="hiringManagerName" >
-  <input id="hiringManagerLinkedIn" [(ngModel)]="newCard.hiringManagerLinkedIn" placeholder="Offer link" name="hiringManagerLinkedIn" >
-  <label for="haveContactedHiringManager">Have Contacted Hiring Manager:</label>
-  <input id="haveContactedHiringManager" type="checkbox" [(ngModel)]="newCard.haveContactedHiringManager" name="haveContactedHiringManager">
-
-  <button type="submit">Add Card</button>
-</form>
-`
+    <form (ngSubmit)="addCard()">
+      <input type="text" id="positionTitle" [(ngModel)]="newCard.positionTitle" name="positionTitle"  placeholder="Job title" required>  
+      <input type="text" id="hiringManagerName" [(ngModel)]="newCard.hiringManagerName" placeholder="Hiring manager" name="hiringManagerName" >
+      <input type="text" id="hiringManagerLinkedIn" [(ngModel)]="newCard.hiringManagerLinkedIn" placeholder="Offer link" name="hiringManagerLinkedIn" >
+      <div class="checkbox-container">
+        <input id="haveContactedHiringManager" type="checkbox" [(ngModel)]="newCard.haveContactedHiringManager" name="haveContactedHiringManager">
+        <label for="haveContactedHiringManager">Have Contacted Hiring Manager</label>
+      </div>
+      <button type="submit">Add Card</button>
+    </form>
+  `
 })
 export class KanbanCardFormComponent {
-  @Input() newCard:Card = {
+  @Input() newCard: Card = {
     Id: 432,
     status: "toApplyStatus",
     positionTitle: "",
@@ -34,12 +27,13 @@ export class KanbanCardFormComponent {
     hiringManagerLinkedIn: "#",
     haveContactedHiringManager: false,
   };
+  @Input() cardStatus = 'toApplyStatus';
 
   constructor(private kanbanService: KanbanHandlerService) {}
 
-
-  addCard(){
+  addCard() {
     this.newCard.Id = Math.floor(Math.random() * 1000); // Simple ID generation for demo
+    this.newCard.status = this.cardStatus as "toApplyStatus" | "appliedStatus" | "doneStatus" | "bossFightStatus" | "vacationStatus";
     const newlyAddedCard = this.newCard;
     this.kanbanService.addCard(this.newCard);
     this.newCard = { // Reset the form
@@ -51,6 +45,6 @@ export class KanbanCardFormComponent {
       haveContactedHiringManager: false,
     };
 
-    return newlyAddedCard;
+    //return newlyAddedCard;
   }
 }

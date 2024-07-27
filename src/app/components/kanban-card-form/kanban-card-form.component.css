@@ -1,0 +1,62 @@
+/* Container styling */
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  /* Input field styling */
+  input[type="text"], input[type="url"], input[type="checkbox"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    height: 20px;
+    margin-bottom: 5px;
+  }
+  
+  /* Checkbox styling */
+  input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    margin-top: 0;
+  }
+  
+  /* Label styling */
+  label {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Flex container for checkbox and label */
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {    
+    background-color: #0056b3;
+  }
+    

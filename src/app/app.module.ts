@@ -7,12 +7,14 @@ import { KanbanModule } from '@syncfusion/ej2-angular-kanban';
 import { KanbanCardFormComponent } from './components/kanban-card-form/kanban-card-form.component';
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
+import { KanbanModalComponent } from './components/kanban-modal/kanban-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KanbanComponent,
-    KanbanCardFormComponent
+    KanbanCardFormComponent,
+    KanbanModalComponent
   ],
   imports: [
     BrowserModule,
