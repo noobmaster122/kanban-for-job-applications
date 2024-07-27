@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   //templateUrl: './kanban.component.html',
   styleUrls: ['./kanban.component.css'],
   template: `
-  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status" [columns]='columns' [cardSettings]='cardSettings'>         
+  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status" [columns]='columns' [cardSettings]='cardSettings' enablePersistence='true'>         
     <ng-template #cardSettingsTemplate let-data> 
     <div class="card-template"> 
         <div class="e-card-header">
