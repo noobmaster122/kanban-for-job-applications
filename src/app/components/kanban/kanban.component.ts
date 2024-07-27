@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   //templateUrl: './kanban.component.html',
   styleUrls: ['./kanban.component.css'],
   template: `
-  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="Status" [columns]='columns' [cardSettings]='cardSettings'>         
+  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status" [columns]='columns' [cardSettings]='cardSettings'>         
   </ejs-kanban>
   <pre>{{data | json}}</pre>
               `

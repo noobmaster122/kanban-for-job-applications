@@ -1,35 +1,20 @@
 import { CardSettingsModel } from "@syncfusion/ej2-angular-kanban";
+import { Card } from "../models/card.model";
+import { Column } from "../models/column.model";
 
-export const data: object[] = [
+export const data: Card[] = [
     {
-        Id: 1,
-        Title: 'Task 1',
-        Status: 'toApplyStatus',
-        Summary: 'Analyze the new requirements gathered from the customer.',
-        Type: 'Story',
-        Priority: 'Low',
-        Tags: 'Analyze,Customer',
-        Estimate: 3.5,
-        Assignee: 'Nancy Davloio',
-        RankId: 1
-    },
-    {
-        Id: 2,
-        Title: 'Task 2',
-        Status: 'doneStatus',
-        Summary: 'Analyze the new requirements gathered from the customer.',
-        Type: 'Story',
-        Priority: 'Low',
-        Tags: 'Analyze,Customer',
-        Estimate: 3.5,
-        Assignee: 'Nancy Davloio',
-        RankId: 1
-    },
-
+        Id: 432,
+        status: 'toApplyStatus',
+        positionTitle: "Développeur java",
+        hiringManagerName: "John doe",
+        hiringManagerLinkedIn: "#",
+        haveContactedHiringManager: false,
+    }
 ];
 
 // Define the columns
-export const columns: object[] = [
+export const columns: Column[] = [
     { headerText: 'To Apply', keyField: 'toApplyStatus' },
     { headerText: 'Applied', keyField: 'appliedStatus' },
     { headerText: 'HR Interview', keyField: 'doneStatus' },
