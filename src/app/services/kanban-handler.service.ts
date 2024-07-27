@@ -1,8 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { data,columns,cardSettings } from './data';
-import { CardSettingsModel } from '@syncfusion/ej2-angular-kanban';
-import { Column } from '../models/column.model';
+import { CardSettingsModel, ColumnsModel } from '@syncfusion/ej2-angular-kanban';
 import { Card } from '../models/card.model';
 
 @Injectable({
@@ -10,7 +9,7 @@ import { Card } from '../models/card.model';
 })
 export class KanbanHandlerService {
   public cardStore = new EventEmitter<object[]>();
-  public columns: Column[] = columns;
+  public columns: ColumnsModel[] = columns;
   public data: Card[] = data;
   public cardSettings: CardSettingsModel = cardSettings;
 
