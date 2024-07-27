@@ -10,11 +10,22 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./kanban.component.css'],
   template: `
   <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status" [columns]='columns' [cardSettings]='cardSettings'>         
+    <ng-template #cardSettingsTemplate let-data> 
+    <div class="card-template"> 
+        <div class="e-card-header">
+          <h4>{{ data.positionTitle }}</h4>
+        </div>
+        <div class="e-card-content">
+          <p><strong>LinkedIn:</strong> <a [href]="data.hiringManagerLinkedIn" target="_blank">{{ data.hiringManagerName }}</a></p>
+          <p><strong>Contacted:</strong> {{ data.haveContactedHiringManager ? 'Yes' : 'No' }}</p>
+        </div> 
+      </div> 
+    </ng-template> 
   </ejs-kanban>
   <pre>{{data | json}}</pre>
               `
 })
-export class KanbanComponent implements AfterViewChecked  {
+export class KanbanComponent implements AfterViewChecked {
   public columns: object[];
   public data: object[];
   public cardSettings: CardSettingsModel;
@@ -33,21 +44,21 @@ export class KanbanComponent implements AfterViewChecked  {
   }
 
   ngAfterViewChecked(): void {
-      // Trigger change detection to ensure the view is fully updated
-      this.cdr.detectChanges();
+    // Trigger change detection to ensure the view is fully updated
+    this.cdr.detectChanges();
 
-      // Query the document for all elements with the class 'e-empty-card'
-      const emptyCards = document.querySelectorAll('.e-empty-card');      
+    // Query the document for all elements with the class 'e-empty-card'
+    const emptyCards = document.querySelectorAll('.e-empty-card');
 
-      // Iterate over the NodeList and hide each element
-      emptyCards.forEach((element) => {
-        (element as HTMLElement).style.display = 'none';
-      });
+    // Iterate over the NodeList and hide each element
+    emptyCards.forEach((element) => {
+      (element as HTMLElement).style.display = 'none';
+    });
   }
 
   ngOnDestroy() {
     if (this.subscription) {
-      this.subscription.unsubscribe(); 
+      this.subscription.unsubscribe();
     }
   }
 }
