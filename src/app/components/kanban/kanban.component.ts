@@ -8,7 +8,7 @@ import { KanbanModalComponent } from '../kanban-modal/kanban-modal.component';
   selector: 'app-kanban',
   styleUrls: ['./kanban.component.css'],
   template: `
-  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status"  [cardSettings]='cardSettings'>         
+  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status" [columns]='columns' [cardSettings]='cardSettings'>         
   <ng-template #cardSettingsTemplate let-data> 
       <div class="card-template"> 
           <div class="e-card-header">
