@@ -8,8 +8,8 @@ import { KanbanModalComponent } from '../kanban-modal/kanban-modal.component';
   selector: 'app-kanban',
   styleUrls: ['./kanban.component.css'],
   template: `
-  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status" [columns]='columns' [cardSettings]='cardSettings'>         
-    <ng-template #cardSettingsTemplate let-data> 
+  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status"  [cardSettings]='cardSettings'>         
+  <ng-template #cardSettingsTemplate let-data> 
       <div class="card-template"> 
           <div class="e-card-header">
             <h4>{{ data.positionTitle }}</h4>
@@ -26,21 +26,28 @@ import { KanbanModalComponent } from '../kanban-modal/kanban-modal.component';
 })
 export class KanbanComponent implements AfterViewChecked, OnInit, OnDestroy {
   @ViewChild('modal') modal!: KanbanModalComponent;
-  public columns: ColumnsModel[];
-  public data: object[];
-  public cardSettings: CardSettingsModel;
+  public columns!: ColumnsModel[];
+  public data!: object[];
+  public cardSettings!: CardSettingsModel;
   private subscription: Subscription | null = null;
 
   constructor(private kanbanService: KanbanHandlerService, private cdr: ChangeDetectorRef) {
-    this.columns = kanbanService.columns;
-    this.data = kanbanService.data;
-    this.cardSettings = kanbanService.cardSettings;
   }
 
   ngOnInit() {
     this.subscription = this.kanbanService.cardStore.subscribe((data: object[]) => {
       this.data = data;
     });
+
+  }
+
+  ngAfterViewInit(){
+    this.data = this.kanbanService.data;
+    this.cardSettings = this.kanbanService.cardSettings;
+    console.log("am data", this.data);
+    this.columns = this.kanbanService.columns;
+    console.log("am data", this.columns);
+
   }
 
   openDialog(keyField: string) {

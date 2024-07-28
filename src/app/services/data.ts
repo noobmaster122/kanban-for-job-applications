@@ -17,48 +17,48 @@ export const columns: ColumnsModel[] = [
     {
         headerText: 'To Apply',
         keyField: 'toApplyStatus',
-        template: `<div class="header-template-wrap">
-                   <div class="header-text">Applied</div>
-                   <div class="open-dialog-trigger" data-key="toApplyStatus">open</div>
-                 </div>`,
+        // template: `<div class="header-template-wrap">
+        //            <div class="header-text">To apply</div>
+        //            <div class="open-dialog-trigger" data-key="toApplyStatus">open</div>
+        //          </div>`,
         allowToggle: true,
     },
     {
         headerText: 'Applied',
         keyField: 'appliedStatus',
-        template: `<div class="header-template-wrap">
-        <div class="header-text">Applied</div>
-                   <div class="open-dialog-trigger" data-key="appliedStatus">open</div>
-      </div>`,
+    //     template: `<div class="header-template-wrap">
+    //     <div class="header-text">Applied</div>
+    //                <div class="open-dialog-trigger" data-key="appliedStatus">open</div>
+    //   </div>`,
         allowToggle: true,
     },
-    {
-        headerText: 'HR Interview',
-        keyField: 'doneStatus',
-        template: `<div class="header-template-wrap">
-        <div class="header-text">Applied</div>
-                   <div class="open-dialog-trigger" data-key="doneStatus">open</div>
-      </div>`,
-        allowToggle: true,
-    },
-    {
-        headerText: 'Boss fight with tech lead',
-        keyField: 'bossFightStatus',
-        template: `<div class="header-template-wrap">
-        <div class="header-text">Applied</div>
-                   <div class="open-dialog-trigger" data-key="bossFightStatus">open</div>
-      </div>`,
-        allowToggle: true,
-    },
-    {
-        headerText: 'Can finally go on a vacation',
-        keyField: 'vacationStatus',
-        template: `<div class="header-template-wrap">
-        <div class="header-text">Applied</div>
-                   <div class="open-dialog-trigger" data-key="vacationStatus">open</div>
-      </div>`,
-        allowToggle: true,
-    }
+    // {
+    //     headerText: 'HR Interview',
+    //     keyField: 'doneStatus',
+    //     template: `<div class="header-template-wrap">
+    //     <div class="header-text">HR Interview</div>
+    //                <div class="open-dialog-trigger" data-key="doneStatus">open</div>
+    //   </div>`,
+    //     allowToggle: true,
+    // },
+    // {
+    //     headerText: 'Boss fight with tech lead',
+    //     keyField: 'bossFightStatus',
+    //     template: `<div class="header-template-wrap">
+    //     <div class="header-text">Boss fight</div>
+    //                <div class="open-dialog-trigger" data-key="bossFightStatus">open</div>
+    //   </div>`,
+    //     allowToggle: true,
+    // },
+    // {
+    //     headerText: 'Can finally go on a vacation',
+    //     keyField: 'vacationStatus',
+    //     template: `<div class="header-template-wrap">
+    //     <div class="header-text">Viva la vida</div>
+    //                <div class="open-dialog-trigger" data-key="vacationStatus">open</div>
+    //   </div>`,
+    //     allowToggle: true,
+    // }
 ];
 export const cardSettings: CardSettingsModel = {
     headerField: 'Id',
