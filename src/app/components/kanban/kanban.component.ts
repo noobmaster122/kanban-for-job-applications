@@ -3,12 +3,13 @@ import { CardSettingsModel, ColumnsModel } from '@syncfusion/ej2-angular-kanban'
 import { KanbanHandlerService } from 'src/app/services/kanban-handler.service';
 import { Subscription } from 'rxjs';
 import { KanbanModalComponent } from '../kanban-modal/kanban-modal.component';
+import { columns as columnsData } from 'src/app/services/data';
 
 @Component({
   selector: 'app-kanban',
   styleUrls: ['./kanban.component.css'],
   template: `
-  <ejs-kanban class='kanban-custom' [dataSource]='data' keyField="status" [columns]='columns' [cardSettings]='cardSettings'>         
+  <ejs-kanban class='kanban-custom' [dataSource]='data' [columns]='columns' keyField="status" [cardSettings]='cardSettings'>         
   <ng-template #cardSettingsTemplate let-data> 
       <div class="card-template"> 
           <div class="e-card-header">
@@ -26,6 +27,7 @@ import { KanbanModalComponent } from '../kanban-modal/kanban-modal.component';
 })
 export class KanbanComponent implements AfterViewChecked, OnInit, OnDestroy {
   @ViewChild('modal') modal!: KanbanModalComponent;
+  
   public columns!: ColumnsModel[];
   public data!: object[];
   public cardSettings!: CardSettingsModel;
@@ -35,6 +37,8 @@ export class KanbanComponent implements AfterViewChecked, OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.columns = this.kanbanService.columns;
+
     this.subscription = this.kanbanService.cardStore.subscribe((data: object[]) => {
       this.data = data;
     });
@@ -45,8 +49,6 @@ export class KanbanComponent implements AfterViewChecked, OnInit, OnDestroy {
     this.data = this.kanbanService.data;
     this.cardSettings = this.kanbanService.cardSettings;
     console.log("am data", this.data);
-    this.columns = this.kanbanService.columns;
-    console.log("am data", this.columns);
 
   }
 
