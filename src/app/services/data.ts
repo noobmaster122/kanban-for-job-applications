@@ -15,7 +15,7 @@ export const data: Card[] = [
 // Define the columns
 export const columns: ColumnsModel[] = [
     {
-        headerText: 'To Apply<div class="open-dialog-trigger" data-key="toApplyStatus">open</div>',
+        headerText: 'To Apply<div class="open-dialog-trigger" data-key="toApplyStatus">➕</div>',
         keyField: 'toApplyStatus',
         // template: `<div class="header-template-wrap">
         //            <div class="header-text">To apply</div>
@@ -24,7 +24,7 @@ export const columns: ColumnsModel[] = [
         allowToggle: true,
     },
     {
-        headerText: 'Applied<div class="open-dialog-trigger" data-key="appliedStatus">open</div>',
+        headerText: 'Applied<div class="open-dialog-trigger" data-key="appliedStatus">➕</div>',
         keyField: 'appliedStatus',
     //     template: `<div class="header-template-wrap">
     //     <div class="header-text">Applied</div>
@@ -33,7 +33,7 @@ export const columns: ColumnsModel[] = [
         allowToggle: true,
     },
     {
-        headerText: 'HR Interview<div class="open-dialog-trigger" data-key="doneStatus">open</div>',
+        headerText: 'HR Interview<div class="open-dialog-trigger" data-key="doneStatus">➕</div>',
         keyField: 'doneStatus',
     //     template: `<div class="header-template-wrap">
     //     <div class="header-text">HR Interview</div>
@@ -42,7 +42,7 @@ export const columns: ColumnsModel[] = [
         allowToggle: true,
     },
     {
-        headerText: 'Boss fight with tech lead <div class="open-dialog-trigger" data-key="bossFightStatus">open</div>',
+        headerText: 'Boss fight with tech lead <div class="open-dialog-trigger" data-key="bossFightStatus">➕</div>',
         keyField: 'bossFightStatus',
     //     template: `<div class="header-template-wrap">
     //     <div class="header-text">Boss fight</div>
@@ -51,7 +51,7 @@ export const columns: ColumnsModel[] = [
         allowToggle: true,
     },
     {
-        headerText: 'Can finally go on a vacation <div class="open-dialog-trigger" data-key="vacationStatus">open</div>',
+        headerText: 'Can finally go on a vacation <div class="open-dialog-trigger" data-key="vacationStatus">➕</div>',
         keyField: 'vacationStatus',
     //     template: `<div class="header-template-wrap">
     //     <div class="header-text">Viva la vida</div>

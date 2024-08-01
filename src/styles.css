@@ -1,6 +1,9 @@
 body{
     min-width: 700px;
 }
+.open-dialog-trigger:hover{
+cursor: pointer;
+}
 
 
 @import "../node_modules/@syncfusion/ej2-base/styles/material.css";

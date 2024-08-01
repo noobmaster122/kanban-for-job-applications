@@ -17,9 +17,9 @@ import { Card } from 'src/app/models/card.model';
         class="avatar"><a [href]="data.hiringManagerLinkedIn" target="_blank">🧑</a></span>
       </div> 
     </ng-template> 
-    <ng-template #tooltipTemplate >
+    <ng-template #tooltipTemplate let-data>
         <div class='e-kanbanTooltipTemp'>
-            hello world
+            <p>Poste: {{data.positionTitle}}</p>
         </div>
     </ng-template>
   </ejs-kanban>
