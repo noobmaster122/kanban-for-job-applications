@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "application-hunter-extension:build:production"
+              "buildTarget": "application-hunter-extension:build:production"
             },
             "development": {
-              "browserTarget": "application-hunter-extension:build:development"
+              "buildTarget": "application-hunter-extension:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "application-hunter-extension:build"
+            "buildTarget": "application-hunter-extension:build"
           }
         },
         "test": {
