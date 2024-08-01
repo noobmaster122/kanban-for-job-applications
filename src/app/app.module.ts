@@ -8,13 +8,15 @@ import { KanbanCardFormComponent } from './components/kanban-card-form/kanban-ca
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
 import { KanbanModalComponent } from './components/kanban-modal/kanban-modal.component';
+import { TruncatePipe } from './pipes/truncate/truncate.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     KanbanComponent,
     KanbanCardFormComponent,
-    KanbanModalComponent
+    KanbanModalComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
