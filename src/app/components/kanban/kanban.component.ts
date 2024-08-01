@@ -11,13 +11,13 @@ import { Card } from 'src/app/models/card.model';
   template: `
   <ejs-kanban class='kanban-custom' height="400" width="100%" [dataSource]='data' [columns]='columns' keyField="status" [cardSettings]='cardSettings' enableTooltip='true'>         
     <ng-template #cardSettingsTemplate let-data> 
-      <div class="card-template"> 
+      <div class="card-template e-tooltip-text"> 
         <span>{{ data.positionTitle | truncate:8 }}</span>
         <span  [ngClass]="{'avatar-contacted': data.haveContactedHiringManager, 'avatar-not-contacted': !data.haveContactedHiringManager}"
         class="avatar"><a [href]="data.hiringManagerLinkedIn" target="_blank">🧑</a></span>
       </div> 
     </ng-template> 
-    <ng-template #tooltipTemplate let-data>
+    <ng-template #tooltipTemplate >
         <div class='e-kanbanTooltipTemp'>
             hello world
         </div>
