@@ -18,9 +18,10 @@ import { Card } from 'src/app/models/card.model';
       </div> 
     </ng-template> 
     <ng-template #tooltipTemplate let-data>
-        <div class='e-kanbanTooltipTemp'>
-            <p>Poste: {{data.positionTitle}}</p>
-        </div>
+        <div class='e-kanbanTooltipTemp '>
+          <span>Poste: {{data.positionTitle}}</span><br>
+          <span>Manager: {{data.hiringManagerName}}</span>
+       </div>
     </ng-template>
   </ejs-kanban>
   <app-kanban-modal #modal></app-kanban-modal>
@@ -28,7 +29,7 @@ import { Card } from 'src/app/models/card.model';
 })
 export class KanbanComponent implements AfterViewChecked, OnDestroy {
   @ViewChild('modal') modal!: KanbanModalComponent;
-  
+
   public columns: ColumnsModel[] = [];
   public data: Card[] = [];
   public cardSettings: CardSettingsModel;
@@ -39,7 +40,6 @@ export class KanbanComponent implements AfterViewChecked, OnDestroy {
     this.cardSettings = this.kanbanService.cardSettings;
     this.subscription.add(this.kanbanService.cardStore$.subscribe((data: Card[]) => {
       this.data = data;
-      console.log("Data updated:", data);
     }));
   }
 

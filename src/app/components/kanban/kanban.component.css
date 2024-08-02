@@ -36,3 +36,8 @@
     color: white;
     margin-top: 10px;
 }
+
+.custom-tooltip-template > p{
+  margin: 0;
+  padding: 0;
+}

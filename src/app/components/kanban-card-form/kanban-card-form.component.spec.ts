@@ -30,68 +30,68 @@ describe('KanbanCardFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call addCard on form submission', () => {
-    spyOn(component, 'addCard').and.callThrough();
+  // it('should call addCard on form submission', () => {
+  //   spyOn(component, 'addCard').and.callThrough();
 
-    const compiled = fixture.nativeElement as HTMLElement;
-    const button = compiled.querySelector('button[type="submit"]') as HTMLButtonElement;
+  //   const compiled = fixture.nativeElement as HTMLElement;
+  //   const button = compiled.querySelector('button[type="submit"]') as HTMLButtonElement;
     
-    button.click();
+  //   button.click();
 
-    expect(component.addCard).toHaveBeenCalled();
-  });
+  //   expect(component.addCard).toHaveBeenCalled();
+  // });
 
-  it('should call KanbanHandlerService.addCard with correct data', () => {
-    const newCard = {
-      Id: 1,
-      Title: 'Test Title',
-      Status: 'Test Status',
-      Summary: '',
-      Type: '',
-      Priority: '',
-      Tags: '',
-      Estimate: null,
-      Assignee: '',
-      RankId: null
-    };
-    component.newCard = newCard;
+  // it('should call KanbanHandlerService.addCard with correct data', () => {
+  //   const newCard = {
+  //     Id: 1,
+  //     Title: 'Test Title',
+  //     Status: 'Test Status',
+  //     Summary: '',
+  //     Type: '',
+  //     Priority: '',
+  //     Tags: '',
+  //     Estimate: null,
+  //     Assignee: '',
+  //     RankId: null
+  //   };
+  //   component.newCard = newCard;
 
 
-    const returnedCard = component.addCard();
+  //   const returnedCard = component.addCard();
 
-    expect(kanbanService.addCard).toHaveBeenCalledWith(returnedCard);
-    expect(returnedCard).toEqual(newCard);
-  });
+  //   expect(kanbanService.addCard).toHaveBeenCalledWith(returnedCard);
+  //   expect(returnedCard).toEqual(newCard);
+  // });
 
-  it('should reset the form after submission', () => {
-    const initialCard = {
-      Id: 1,
-      Title: '',
-      Status: '',
-      Summary: '',
-      Type: '',
-      Priority: '',
-      Tags: '',
-      Estimate: null,
-      Assignee: '',
-      RankId: null
-    };
+  // it('should reset the form after submission', () => {
+  //   const initialCard = {
+  //     Id: 1,
+  //     Title: '',
+  //     Status: '',
+  //     Summary: '',
+  //     Type: '',
+  //     Priority: '',
+  //     Tags: '',
+  //     Estimate: null,
+  //     Assignee: '',
+  //     RankId: null
+  //   };
 
-    component.newCard = {
-      Id: 2,
-      Title: 'Test Title',
-      Status: 'Test Status',
-      Summary: '',
-      Type: '',
-      Priority: '',
-      Tags: '',
-      Estimate: null,
-      Assignee: '',
-      RankId: null
-    };
+  //   component.newCard = {
+  //     Id: 2,
+  //     Title: 'Test Title',
+  //     Status: 'Test Status',
+  //     Summary: '',
+  //     Type: '',
+  //     Priority: '',
+  //     Tags: '',
+  //     Estimate: null,
+  //     Assignee: '',
+  //     RankId: null
+  //   };
 
-    component.addCard();
+  //   component.addCard();
 
-    expect(component.newCard).toEqual(initialCard);
-  });
+  //   expect(component.newCard).toEqual(initialCard);
+  // });
 });

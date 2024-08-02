@@ -18,4 +18,5 @@ export class KanbanHandlerService {
     const updatedData = [...this.cardStoreSubject.getValue(), newCard];
     this.cardStoreSubject.next(updatedData);
   }
+
 }
